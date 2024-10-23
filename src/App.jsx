@@ -1,12 +1,14 @@
-import { useState } from "react";
+import Navbar from "./components/Navbar";
+import DiaryCard from "./components/DiaryCard";
 
 function App() {
-  const [count, setCount] = useState(0);
+  
 
   return (
     <>
-      <div className=" bg-zinc-200">
-        <h1 className="text-3xl font-bold text-center">Personal Diary</h1>
+      <div className="">
+        <Navbar />
+        <DiaryCard />
       </div>
     </>
   );
