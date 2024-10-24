@@ -1,67 +1,26 @@
-const DiaryCard = () => {
-    return (
-      <div id="card-container" className="flex flex-col justify-center items-center gap-4 pt-10 pb-10 bg-cyan-100"> 
-        <div id="card-container" className="card bg-base-100 image-full w-[50%] h-[200px] shadow-xl">
-          <figure className="h-[70%]"> {/* Ensure figure takes up most of the card */}
-            <img 
-              src="/src/assets/images/pexels-thngocbich-636237.jpg" 
-              alt="Diary Entry" 
-              className="w-full h-full object-cover" // Image styling to fit container
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title text-lg font-semibold text-gray-800">Date</h2> {/* Title styling */}
-            <p className="text-md text-gray-600 mb-2">Modal Title</p> {/* Subtitle styling */}
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary text-white bg-green-500 hover:bg-blue-600 rounded-md px-4 py-2"> {/* Button styling */}
-                Read
-              </button>
-            </div>
-          </div>
-        </div>
-  
-        {/* Repeat the same structure for additional cards */}
-        <div id="card-container" className="card bg-base-100 image-full w-[50%] h-[200px] shadow-xl">
-          <figure className="h-[70%]">
-            <img 
-              src="/src/assets/images/pexels-thngocbich-636237.jpg" 
-              alt="Diary Entry" 
-              className="w-full h-full object-cover"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title text-lg font-semibold text-gray-800">Date</h2>
-            <p className="text-md text-gray-600 mb-2">Modal Title</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary text-white bg-green-500 hover:bg-blue-600 rounded-md px-4 py-2">
-                Read
-              </button>
-            </div>
-          </div>
-        </div>
-  
-        <div id="card-container" className="card bg-base-100 image-full w-[50%] h-[200px] shadow-xl">
-          <figure className="h-[70%]">
-            <img 
-              src="/src/assets/images/pexels-thngocbich-636237.jpg" 
-              alt="Diary Entry" 
-              className="w-full h-full object-cover"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title text-lg font-semibold text-gray-800">Date</h2>
-            <p className="text-md text-gray-600 mb-2">Modal Title</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary text-white bg-green-500 hover:bg-blue-600 rounded-md px-4 py-2">
-                Read
-              </button>
-            </div>
-          </div>
-        </div>
+import React from "react";
+
+const DiaryCard = ({ entry, onClick }) => {
+  return (
+    <div
+      className="bg-white rounded shadow-md p-4 m-2 cursor-pointer flex items-center"
+      onClick={onClick}
+    >
+      <img
+        src={entry.image}
+        alt={entry.title}
+        className="w-32 h-32 object-cover rounded mr-4"  // Adjust image size
+      />
+      <div className="flex-1">
+        <h2 className="text-xl font-bold">{entry.title}</h2>
+        <p className="text-gray-500">{entry.date}</p>
       </div>
-    );
-  };
-  
-  export default DiaryCard;
+    </div>
+  );
+};
+
+export default DiaryCard;
+
+
   
   
