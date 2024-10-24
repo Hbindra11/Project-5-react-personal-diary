@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div className="">
+      <div >
         <Navbar />
         <DiaryCard />
       </div>
