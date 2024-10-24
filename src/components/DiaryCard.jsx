@@ -1,10 +1,9 @@
-import React from "react";
 
-const DiaryCard = ({ entry, onClick }) => {
+const DiaryCard = ({ entry}) => {
   return (
     <div
       className="bg-white rounded shadow-md p-4 m-2 cursor-pointer flex items-center"
-      onClick={onClick}
+     
     >
       <img
         src={entry.image}

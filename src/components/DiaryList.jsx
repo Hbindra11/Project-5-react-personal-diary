@@ -1,10 +1,10 @@
 import DiaryCard from "./DiaryCard";
 
-const DiaryList = ({ entries, onEntryClick }) => {
+const DiaryList = ({ entries }) => {
   return (
     <div className="flex flex-col">
       {entries.map((entry) => (
-        <DiaryCard key={entry.id} entry={entry} onClick={() => onEntryClick(entry)} />
+        <DiaryCard key={entry.id} entry={entry} />
       ))}
     </div>
   );
