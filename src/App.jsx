@@ -14,28 +14,28 @@ const mockEntries = [
     title: "Learning React",
     date: "2023-10-14",
     image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "React is so much fun! I'm learning about state and components.",
+    content: "This is my second entry.",
   },
   {
     id: 3,
     title: "Learning React",
     date: "2023-10-13",
     image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "React is so much fun! I'm learning about state and components.",
+    content: "This is my third entry.",
   },
   {
     id: 4,
     title: "Learning React",
     date: "2023-10-12",
     image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "React is so much fun! I'm learning about state and components.",
+    content: "This is my fourth entry.",
   },
   {
     id: 5,
     title: "Learning React",
     date: "2023-10-11",
     image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "React is so much fun! I'm learning about state and components.",
+    content: "This is my fifth entry.",
   },
 ];
 
