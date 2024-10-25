@@ -1,12 +1,12 @@
 const DIARY_KEY = "personalDiary";
 
-// Helper to retrieve entries as an object keyed by date
+// Get entries as an object keyed by date
 const getDiaryData = () => {
   const diaryData = localStorage.getItem(DIARY_KEY);
   return diaryData ? JSON.parse(diaryData) : {};
 };
 
-// Helper to save entries as an object keyed by date
+// Save entries as an object keyed by date
 const saveDiaryData = (data) => {
   localStorage.setItem(DIARY_KEY, JSON.stringify(data));
 };
