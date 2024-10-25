@@ -1,55 +1,46 @@
-import { useState } from "react";
+// src/App.js
+import { useState, useEffect } from "react";
 import DiaryList from "./components/DiaryList";
-
-const mockEntries = [
-  {
-    id: 1,
-    title: "A Day at the Beach",
-    date: "2023-10-15",
-    image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "I had the best time at the beach today...",
-  },
-  {
-    id: 2,
-    title: "2nd Entry",
-    date: "2023-10-14",
-    image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "This is my second entry.",
-  },
-  {
-    id: 3,
-    title: "3rd Entry",
-    date: "2023-10-13",
-    image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "This is my third entry.",
-  },
-  {
-    id: 4,
-    title: "4th Entry",
-    date: "2023-10-12",
-    image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "This is my fourth entry.",
-  },
-  {
-    id: 5,
-    title: "5th Entry",
-    date: "2023-10-11",
-    image: "/src/assets/images/pexels-thngocbich-636237.jpg",
-    content: "This is my fifth entry.",
-  },
-];
-
+import EntryDetailModal from "./components/EntryDetailModal";
+import { getEntries, addOrUpdateEntry } from "./components/Storage";
+import { mockEntries } from "./mockData";
 const App = () => {
-  const [entries, setEntries] = useState(mockEntries);
+  const [entries, setEntries] = useState([]);
+  const [selectedEntry, setSelectedEntry] = useState(null);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
 
-  const sortedEntries = [...entries].sort((a, b) => new Date(b.date) - new Date(a.date));
+  useEffect(() => {
+    const storedEntries = getEntries();
+    if (storedEntries.length === 0) {
+      mockEntries.forEach((entry) => addOrUpdateEntry(entry));
+      setEntries(getEntries());
+    } else {
+      setEntries(storedEntries);
+    }
+  }, []);
+
+  const handleEntryClick = (date) => {
+    const clickedEntry = entries.find((entry) => entry.date === date);
+    if (clickedEntry) {
+      setSelectedEntry(clickedEntry);
+      setIsDetailModalOpen(true);
+    }
+  };
+
+  // Clear localStorage entries for personal diary
+  const clearEntries = () => {
+    localStorage.removeItem("personalDiary");
+    setEntries([]); // Update the state to reflect the cleared entries
+  };
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4 text-center">My Diary</h1>
-      <DiaryList entries={sortedEntries} />
+      <h1 className="text-3xl font-bold mb-4 text-center">Personal Diary</h1>
       
-      {/* Add modals for viewing and adding entries */}
+      <DiaryList entries={entries} onEntryClick={handleEntryClick} />
+      {isDetailModalOpen && selectedEntry && (
+        <EntryDetailModal entry={selectedEntry} onClose={() => setIsDetailModalOpen(false)} />
+      )}
     </div>
   );
 };
