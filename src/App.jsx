@@ -1,15 +1,15 @@
-
 import AddEntryModal from "./components/AddEntryModal";
 
 const App = () => {
-  // const [count, setCount] = useState(0);
-  //const today = JSON.stringify(new Date()).substring(1,11);
   return (
     <>
-     
+      {/* homepage header */}
       <div className=" bg-zinc-200"></div>
       <h1 className="text-3xl font-bold text-center">Personal Diary</h1>
       <div className="flex justify-end pr-20">
+
+
+        {/* code snippet from daisyUI for a button to open up the add diary entry form in a modal dialog window */}
         <button
           className="btn"
           onClick={() => document.getElementById("my_modal_5").showModal()}

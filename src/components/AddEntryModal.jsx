@@ -12,34 +12,36 @@ const AddEntryModal = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
- // function to store form data to local storage 
-   const storeToLocalStorage = (formData) => {
-    const addPersonalDiary = JSON.parse(localStorage.getItem("personalDiary"))||[];
-console.log (addPersonalDiary);
-     addPersonalDiary.push(formData);
-     localStorage.setItem("personalDiary", JSON.stringify(addPersonalDiary));
- };
-
-
+  // function to store form data to local storage
+  const storeToLocalStorage = (formData) => {
+    const addPersonalDiary =
+      JSON.parse(localStorage.getItem("personalDiary")) || [];
+    console.log(addPersonalDiary);
+    addPersonalDiary.push(formData);
+    localStorage.setItem("personalDiary", JSON.stringify(addPersonalDiary));
+  };
+  // variable for holding current date
   const today = JSON.stringify(new Date()).substring(1, 11);
-  
+
+  //on event of saving the data and submitting form
   const handelSubmit = (e) => {
     e.preventDefault();
 
     if (!form.title || !form.imgUrl || !form.content || !form.date) {
       alert("Please enter all fields!");
     } else {
-        //set date to today before storing in in local storage
+      //set date to today before storing in in local storage
       form.date = today;
       console.log(form);
-      // store form object 
+
+      // store form state data object in local storage
       storeToLocalStorage(form);
       setForm({ date: "", title: "", imgUrl: "", content: "" });
     }
   };
+
   return (
     <>
-    
       <form onSubmit={handelSubmit}>
         <div className="card card-side bg-base-100 shadow-xl">
           <figure className="skeleton h-auto w-auto ">
