@@ -1,13 +1,18 @@
 // src/App.js
 import { useState, useEffect } from "react";
 import DiaryList from "./components/DiaryList";
-import EntryDetailModal from "./components/EntryDetailModal";
+import DiaryEntryModal from "./components/DiaryEntryModal";
 import { getEntries, addOrUpdateEntry } from "./components/Storage";
 import { mockEntries } from "./mockData";
 const App = () => {
+  // Holds all the entries in a list  
   const [entries, setEntries] = useState([]);
-  const [selectedEntry, setSelectedEntry] = useState(null);
-  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
+
+  // keeps track on the diary entry that has been clicked
+  const [clickedDairyEntry, setClickedDairyEntry] = useState(null);
+
+  // checks if the detail modal is open or closed
+  const [isDiaryEntryModalOpen, setIsDiaryEntryModalOpen] = useState(false);
 
   useEffect(() => {
     const storedEntries = getEntries();
@@ -22,15 +27,10 @@ const App = () => {
   const handleEntryClick = (date) => {
     const clickedEntry = entries.find((entry) => entry.date === date);
     if (clickedEntry) {
-      setSelectedEntry(clickedEntry);
-      setIsDetailModalOpen(true);
+      setClickedDairyEntry
+      (clickedEntry);
+      setIsDiaryEntryModalOpen(true);
     }
-  };
-
-  // Clear localStorage entries for personal diary
-  const clearEntries = () => {
-    localStorage.removeItem("personalDiary");
-    setEntries([]); // Update the state to reflect the cleared entries
   };
 
   return (
@@ -38,8 +38,12 @@ const App = () => {
       <h1 className="text-3xl font-bold mb-4 text-center">Personal Diary</h1>
       
       <DiaryList entries={entries} onEntryClick={handleEntryClick} />
-      {isDetailModalOpen && selectedEntry && (
-        <EntryDetailModal entry={selectedEntry} onClose={() => setIsDetailModalOpen(false)} />
+      {isDiaryEntryModalOpen
+ && clickedDairyEntry
+       && (
+        <DiaryEntryModal entry={clickedDairyEntry
+
+        } onClose={() => setIsDiaryEntryModalOpen(false)} />
       )}
     </div>
   );
