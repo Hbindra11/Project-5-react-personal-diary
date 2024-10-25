@@ -12,9 +12,8 @@ const saveDiaryData = (data) => {
 };
 
 // Add or update an entry
-export const addOrUpdateEntry = (entry) => {
+export const addOrUpdateEntry = () => {
   const diaryData = getDiaryData();
-  diaryData[entry.date] = entry; // Key the entry by its date
   saveDiaryData(diaryData);
 };
 

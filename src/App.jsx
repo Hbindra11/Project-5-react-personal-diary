@@ -1,4 +1,4 @@
-// src/App.js
+import AddEntryModal from "./components/AddEntryModal";
 import { useState, useEffect } from "react";
 import DiaryList from "./components/DiaryList";
 import DiaryEntryModal from "./components/DiaryEntryModal";
@@ -36,11 +36,34 @@ const App = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4 text-center">Personal Diary</h1>
+    <>
+      {/* homepage header */}
+      <div className=" bg-zinc-200"></div>
+      <h1 className="text-3xl font-bold text-center">Personal Diary</h1>
+      <div className="flex justify-end pr-20">
 
+        {/* code snippet from daisyUI for a button to open up the add diary entry form in a modal dialog window */}
+        <button
+          className="btn"
+          onClick={() => document.getElementById("my_modal_5").showModal()}
+        >
+          Add A New Entry
+        </button>
+      </div>
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <AddEntryModal />
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    
+    <div>
       {/* Render the DiaryList component, passing entries and click handler as props */}
-
       <DiaryList entries={entries} onEntryClick={handleEntryClick} />
       {isDiaryEntryModalOpen && clickedDairyEntry && (
         <DiaryEntryModal
@@ -49,6 +72,7 @@ const App = () => {
         />
       )}
     </div>
+    </>
   );
 };
 
