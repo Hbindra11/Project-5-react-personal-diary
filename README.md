@@ -9,9 +9,9 @@ Currently, two official plugins are available:
 
 # Group Project 5: the Personal Diary project (source: LMS)
 
-This prject is designed to enhance your skills in React by building a basic-yet-useful, interactive diary application. You will create a user-friendly interface that displays daily entries sorted by date, with each entry presented as a card featuring a preview image and title. Users can click on a card to view full details in a modal window. Additionally, you will implement functionality to add new entries, ensuring they are validated and stored in localStorage. Utilizing TailwindCSS for styling, this project will also provide valuable experience in managing state and effects in a React application. 
+This project is designed to enhance your skills in React by building a basic-yet-useful, interactive diary application. You will create a user-friendly interface that displays daily entries sorted by date, with each entry presented as a card featuring a preview image and title. Users can click on a card to view full details in a modal window. Additionally, you will implement functionality to add new entries, ensuring they are validated and stored in localStorage. Utilizing TailwindCSS for styling, this project will also provide valuable experience in managing state and effects in a React application. 
 
-- Features:
+- Features:-
  - Homepage:
 Display a list of diary entries sorted by date (newest first).
 Each entry should be displayed as a card with a preview image, date and title.
@@ -30,4 +30,4 @@ On form submission, add the entry to a localStorage item as an array item.
  - Loading Entries:
 On app load, load diary entries from localStorage.
 
-- Deploy the application as a static site on Render.
+And finally, Deploy the application as a static site on Render.
