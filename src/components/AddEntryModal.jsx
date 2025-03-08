@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { addOrUpdateEntry, getEntries } from "./Storage";
 
-const AddEntryModal = ({ setEntries }) => {  // Corrected destructuring here
+const AddEntryModal = ({ setEntries }) => {
   const [form, setForm] = useState({
     date: "",
     title: "",
@@ -28,22 +28,30 @@ const AddEntryModal = ({ setEntries }) => {  // Corrected destructuring here
 
     addOrUpdateEntry(entryData);
 
-    setEntries(getEntries());  // Update the main entry list in App
+    setEntries(getEntries());
 
     setForm({ date: "", title: "", imgUrl: "", content: "" });
     alert("Entry added!");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="card card-side bg-base-100 shadow-xl">
-        <figure className="skeleton h-auto w-auto ">
-          <img alt="daisy" src={form.imgUrl} />
+    <form onSubmit={handleSubmit} className="flex w-full">
+      <div className="card card-side bg-base-100 shadow-xl h-32 w-1/4 rounded-lg">
+        <figure className="skeleton h-full w-full rounded-lg">
+          {form.imgUrl ? (
+            <img
+              alt="daisy"
+              src={form.imgUrl}
+              className="object-cover h-full w-full rounded-lg"
+            />
+          ) : (
+            <div className="bg-gray-200 h-full w-full rounded-lg"></div>
+          )}
         </figure>
       </div>
-      <div className="card-body">
+      <div className="card-body ">
         <h2 className="card-title">Add A New Diary Entry</h2>
-        <label className="form-control w-full max-w-xs">
+        <label className="form-control w-full">
           <span className="label-text">Title</span>
           <input
             onChange={handleChange}
@@ -51,47 +59,44 @@ const AddEntryModal = ({ setEntries }) => {  // Corrected destructuring here
             type="text"
             name="title"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full"
           />
         </label>
-        <label className="form-control w-full max-w-xs">
+        <label className="form-control w-full">
           <span className="label-text">Date</span>
           <input
             onChange={handleChange}
             value={form.date}
             type="date"
             name="date"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full"
           />
         </label>
-        <label className="form-control w-full max-w-xs">
+        <label className="form-control w-full">
           <span className="label-text">Image Url</span>
           <input
             onChange={handleChange}
             type="url"
             name="imgUrl"
             value={form.imgUrl}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full"
           />
         </label>
-        <label className="form-control w-full max-w-xs">
+        <label className="form-control w-full">
           <span className="label-text">Content</span>
           <textarea
             onChange={handleChange}
             name="content"
             value={form.content}
-            className="textarea textarea-bordered textarea-lg w-full max-w-xs"
+            className="textarea textarea-bordered textarea-lg w-full"
           />
         </label>
+        <button type="submit" className="btn btn-active mt-4">
+          Save
+        </button>        
       </div>
-      <button type="submit" className="btn btn-active">
-        Send
-      </button>
     </form>
   );
 };
 
 export default AddEntryModal;
-
-
-

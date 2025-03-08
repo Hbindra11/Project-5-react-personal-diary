@@ -25,17 +25,18 @@ const App = () => {
   };
 
   return (
-    <>
-      <div className="bg-zinc-200"></div>
-      <h1 className="text-3xl font-bold text-center">Personal Diary</h1>
-      <div className="flex justify-end pr-20">
+    <div className="container mx-auto relative ">
+      <h1 className="text-3xl font-bold text-center bg-lime-300 p-5 fixed top-0 left-0 w-full z-10">
+        Personal Diary
         <button
-          className="btn"
+          className="btn float-right"
           onClick={() => document.getElementById("my_modal_5").showModal()}
         >
-          Add A New Entry
+          + Add A New Entry
         </button>
-      </div>
+      </h1>
+      <div className="p-2 mt-20" /> {/* Add margin-top to offset the fixed header */}
+      <div className="flex justify-end pr-20"></div>
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <AddEntryModal setEntries={setEntries} /> {/* Pass setEntries prop */}
@@ -55,7 +56,7 @@ const App = () => {
           />
         )}
       </div>
-    </>
+    </div>
   );
 };
 
