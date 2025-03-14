@@ -1,4 +1,4 @@
-# Project: Personal Diary App
+# Project 5: Personal Diary App
 
 ## Overview
 The Personal Diary project is a web application built using React for the frontend framework and TailwindCSS for styling. The application allows users to maintain a personal diary by adding, viewing, and managing diary entries. The entries are stored in the browser's localStorage, ensuring data persistence across sessions.
