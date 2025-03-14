@@ -1,33 +1,35 @@
-# React + Vite
+# Personal Diary React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+The Personal Diary project is a web application built using React for the frontend framework and TailwindCSS for styling. The application allows users to maintain a personal diary by adding, viewing, and managing diary entries. The entries are stored in the browser's localStorage, ensuring data persistence across sessions.
 
-Currently, two official plugins are available:
+## Features
+- Display Diary Entries: The homepage displays a list of diary entries sorted by date, with the newest entries appearing first.
+- Entry Cards: Each diary entry is displayed as a card that includes a preview image, date, and title.
+- Entry Modal: Clicking on a card opens a modal that shows the full details of the entry, including the title, date, image, and content. This is achieved by setting the desired card data in a state variable.
+## Add Entry Modal
+- Add Entry Button: An action button labeled "Add Entry" opens a modal for adding a new diary entry.
+- Entry Form: If no entry exists for the selected date, a form is displayed asking for the following details:
+--Title
+--Date
+--Image URL
+--Content
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-Form Validation: All fields must be populated before the form can be submitted.
+Form Submission: On submission, the new entry is added to a localStorage item as an array item.
 
-# Group Project 5: the Personal Diary project (source: LMS)
+##Loading Entries
+- Initial Load: On application load, diary entries are loaded from localStorage and displayed on the homepage.
 
-This project is designed to enhance your skills in React by building a basic-yet-useful, interactive diary application. You will create a user-friendly interface that displays daily entries sorted by date, with each entry presented as a card featuring a preview image and title. Users can click on a card to view full details in a modal window. Additionally, you will implement functionality to add new entries, ensuring they are validated and stored in localStorage. Utilizing TailwindCSS for styling, this project will also provide valuable experience in managing state and effects in a React application. 
+## State and Effects
+- State Management: The application uses React's state management to handle the display and interaction of diary entries.
+- Effects: React's useEffect hook is used to load diary entries from localStorage when the application mounts.
 
-- Features:-
- - Homepage:
-Display a list of diary entries sorted by date (newest first).
-Each entry should be displayed as a card with a preview image, date and title.
-Clicking on a card should open a modal with the full entry details (title, date, image, content).
-☝️This can be achieved by setting the desired card data in a state variable 😉
- - Add Entry Modal:
-Action button “Add Entry” to open a modal for adding a new entry.
-Check if there’s already an entry for the day. If so, prompt the user to return the next day.
-If not, show a form asking for:
-Title
-Date
-Image URL
-Content
-Validate that all fields are populated before submission.
-On form submission, add the entry to a localStorage item as an array item.
- - Loading Entries:
-On app load, load diary entries from localStorage.
+## Styling
+- TailwindCSS: The application is styled using TailwindCSS, providing a modern and responsive design.
 
-And finally, Deploy the application as a static site on Render.
+## Deployment
+- Static Site: The application is deployed as a static site on Render: https://project-5-react-personal-diary.onrender.com/
+
+## Conclusion
+The Personal Diary project is a simple yet powerful application that demonstrates the use of React, TailwindCSS, and localStorage to create a functional and user-friendly diary application.
