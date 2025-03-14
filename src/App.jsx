@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import DiaryList from "./components/DiaryList";
 import DiaryEntryModal from "./components/DiaryEntryModal";
 import { getEntries, addOrUpdateEntry } from "./components/Storage";
-import { mockEntries } from "./mockData";
+import { mockEntries } from "./mockData"; 
 
 /**
  * The main component of the Personal Diary application.
