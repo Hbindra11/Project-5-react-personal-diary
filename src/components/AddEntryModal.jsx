@@ -2,6 +2,17 @@ import { useState } from "react";
 import { addOrUpdateEntry, getEntries } from "./Storage";
 
 const AddEntryModal = ({ setEntries }) => {
+  /**
+   * State hook to manage the form data for adding a new diary entry.
+   * 
+   * @typedef {Object} Form
+   * @property {string} date - The date of the diary entry.
+   * @property {string} title - The title of the diary entry.
+   * @property {string} imgUrl - The URL of the image associated with the diary entry.
+   * @property {string} content - The content of the diary entry.
+   * 
+   * @type {[Form, React.Dispatch<React.SetStateAction<Form>>]}
+   */
   const [form, setForm] = useState({
     date: "",
     title: "",

@@ -5,6 +5,38 @@ import DiaryEntryModal from "./components/DiaryEntryModal";
 import { getEntries, addOrUpdateEntry } from "./components/Storage";
 import { mockEntries } from "./mockData";
 
+/**
+ * The main component of the Personal Diary application.
+ * 
+ * @component
+ * @returns {JSX.Element} The rendered component.
+ * 
+ * @example
+ * <App />
+ * 
+ * @description
+ * This component manages the state and rendering of the Personal Diary application.
+ * It loads diary entries from localStorage when the component mounts, and provides
+ * functionality to add new entries and view existing entries in a modal.
+ * 
+ * @function
+ * @name App
+ * 
+ * @property {Array} entries - The list of diary entries.
+ * @property {Function} setEntries - Function to update the list of diary entries.
+ * @property {Object|null} clickedDairyEntry - The diary entry that was clicked, or null if no entry is clicked.
+ * @property {Function} setClickedDairyEntry - Function to update the clicked diary entry.
+ * @property {boolean} isDiaryEntryModalOpen - Flag indicating whether the diary entry modal is open.
+ * @property {Function} setIsDiaryEntryModalOpen - Function to update the state of the diary entry modal.
+ * 
+ * @function
+ * @name handleEntryClick
+ * @description Handles the click event on a diary entry. Finds the clicked entry and opens the diary entry modal.
+ * @param {string} date - The date of the clicked diary entry.
+ * 
+ * @example
+ * handleEntryClick('2023-10-01');
+ */
 const App = () => {
   const [entries, setEntries] = useState([]);
 
